@@ -27,9 +27,8 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-        --font-family: "Helios Antique", sans-serif;
-        --second-family: "Bebas Neue", sans-serif;
-        --third-family: "DIN Pro", sans-serif;
+        --primary-family: "Bebas Neue", sans-serif;
+        --secondary-family: "Ropa Sans", sans-serif;
     }
 
     body {
@@ -43,8 +42,23 @@ export default createGlobalStyle`
     li {
         list-style-type: none;
     }
+    
+    button {
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        overflow: visible;
+    }
 
     table {
         margin: 0;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+        outline: none;
     }
 `;

@@ -27,6 +27,14 @@ export const SUBLINE = styled.p`
 
 export const BODY1 = styled.p`
   font-family: var(--secondary-family);
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 16px;
+  font-weight: 400;
+`;
+
+export const BODY2 = styled.p`
+  font-family: var(--secondary-family);
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 16px;
   font-weight: 400;
 `;
@@ -46,6 +54,17 @@ export const Button = styled.button`
   }
 `;
 
+export const InverseButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.background_white};
+  color: ${({ theme }) => theme.colors.primary};
+  border: 2px solid ${({ theme }) => theme.colors.background_light};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.background_gray};
+    border: 0px;
+  }
+`;
+
 export const IconButton = styled.button`
   cursor: pointer;
   padding: 16px;
@@ -61,6 +80,20 @@ export const IconButton = styled.button`
   }
   &:active {
     color: ${({ theme }) => theme.colors.red};
+  }
+`;
+
+export const IconButtonWithBg = styled(IconButton)`
+  color: ${({ theme }) => theme.colors.background_white};
+  background-color: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    color: ${({ theme }) => theme.colors.red};
+  }
+  &:active {
+    color: ${({ theme }) => theme.colors.red};
+  }
+  &:active > {
+    fill: ${({ theme }) => theme.colors.red};
   }
 `;
 
@@ -91,4 +124,17 @@ export const Input = styled.input`
 
   &:active {
   }
+`;
+
+export const Label = styled.label`
+  font-size: 16px;
+  font-family: var(--secondary-family);
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+export const LinkHints = styled.p`
+  font-size: 14px;
+  font-family: var(--secondary-family);
+  color: ${({ theme }) => theme.colors.primary};
 `;

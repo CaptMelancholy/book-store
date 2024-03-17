@@ -29,6 +29,7 @@ export default createGlobalStyle`
 
         --primary-family: "Bebas Neue", sans-serif;
         --secondary-family: "Ropa Sans", sans-serif;
+        min-height: 100vh;
     }
 
     body {

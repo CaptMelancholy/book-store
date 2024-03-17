@@ -12,7 +12,7 @@ export const Container = styled.main`
   margin: 0 auto;
   padding: 0 40px;
   max-width: 1200px;
-
+  min-height:100%;
   @media ${device.tablet} {
     max-width: 100%;
   }

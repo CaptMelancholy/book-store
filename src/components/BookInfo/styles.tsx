@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 72px;
+  margin-bottom: 72px;
 `;
 
 export const InfoSection = styled.div`

@@ -1,12 +1,12 @@
 const DefaultRoutes = {
-  default: '',
-  home: '/home',
+  default: '/',
+  home: 'home',
+  cart: 'cart',
+  authorization: 'auth',
+  book: '/book/:isbn13',
   search: '/results/:search-name',
-  book: '/book/:book-name',
-  cart: '/cart',
   account: '/account/:uid',
   activation: '/activate/:uid/:token',
-  authorization: '/auth',
   reset: '/reset-password',
 };
 

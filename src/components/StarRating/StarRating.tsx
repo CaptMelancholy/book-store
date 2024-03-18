@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { FaStar } from 'react-icons/fa6';
 import * as S from './styles';
 
-export default function StarRating() {
-  const [rating, setRating] = useState<number>(4);
+interface IProps {
+  rates: string;
+}
+
+export default function StarRating({ rates } : IProps) {
+  const [rating, setRating] = useState<number>(parseInt(rates, 10));
   const [hover, setHover] = useState<number | null>(null);
   return (
     <S.Wrapper>

@@ -8,3 +8,9 @@ export const Template = styled.div`
 export const Title = styled(H1)`
     margin-bottom: 48px;
 `;
+
+export const BackButton = styled.div`
+    margin-bottom: 32px;
+    width: 42px;
+    cursor: pointer;
+`;

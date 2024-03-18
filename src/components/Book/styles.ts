@@ -27,7 +27,10 @@ export const Title = styled(H3)`
   margin-bottom: 8px;
   width: 100%;
   word-break: break-all;
-  
+  transition: .3s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Author = styled(BODY1)`

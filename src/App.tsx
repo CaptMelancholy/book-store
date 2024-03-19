@@ -19,6 +19,11 @@ import SearchPage from './pages/SearchPage';
 import RegToActivatePage from './pages/RegToActivatePage';
 import RegSuccessPage from './pages/RegSuccessPage';
 import ActivationPage from './pages/ActivationPage';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import AccountPage from './pages/AccountPage';
+import NewPassword from './components/Password/NewPassword/NewPassword';
+import NewPasswordPage from './pages/NewPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -43,9 +48,28 @@ function App() {
             <Route path={DefaultRoutes.cart} element={<CartPage />} />
             <Route path={DefaultRoutes.favorite} element={<FavoritePage />} />
             <Route path={DefaultRoutes.search} element={<SearchPage />} />
-            <Route path={DefaultRoutes.activation_request} element={<RegToActivatePage />} />
-            <Route path={DefaultRoutes.activation_comp} element={<RegSuccessPage />} />
-            <Route path={DefaultRoutes.activation} element={<ActivationPage />} />
+            <Route path={DefaultRoutes.reset} element={<NewPasswordPage />} />
+            <Route path={DefaultRoutes.new_password} element={<ResetPasswordPage />} />
+            <Route
+              path={DefaultRoutes.activation_request}
+              element={<RegToActivatePage />}
+            />
+            <Route
+              path={DefaultRoutes.activation_comp}
+              element={<RegSuccessPage />}
+            />
+            <Route
+              path={DefaultRoutes.activation}
+              element={<ActivationPage />}
+            />
+            <Route
+              path={DefaultRoutes.account}
+              element={
+                <ProtectedRoute>
+                  <AccountPage />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path={DefaultRoutes.authorization}
               element={<SignInPage />}

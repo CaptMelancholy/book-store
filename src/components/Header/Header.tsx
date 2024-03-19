@@ -47,7 +47,7 @@ export default function Header() {
             </Link>
           </S.HeaderMenuLink>
           <S.HeaderMenuLink>
-            <Link to={generatePath(DefaultRoutes.authorization)}>
+            <Link to={generatePath(DefaultRoutes.account)}>
               <FaRegUser />
             </Link>
           </S.HeaderMenuLink>

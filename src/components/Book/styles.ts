@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BODY1, H3 } from '../../styles/components';
+import device from '../../styles/breakpoints';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ export const Wrapper = styled.div`
 
 export const BookImageContainer = styled.div`
   padding: 0 60px;
+  
   background-color: ${({ theme }) => {
     function randomIntFromInterval(min: number, max: number) {
       // min and max included
@@ -33,6 +35,10 @@ export const BookImageContainer = styled.div`
     }
   }};
   object-fit: fill;
+  @media ${device.phone} {
+    padding: 0;
+    width: 100%;
+  }
 `;
 
 export const BookInfoContainer = styled.div`
@@ -45,6 +51,13 @@ export const BookInfoContainer = styled.div`
 export const BookImage = styled.img`
   object-fit: cover;
   padding: 40px;
+  
+  @media ${device.tablet} {
+    padding: 30px;
+  }
+  @media ${device.phone} {
+    padding: 10px;
+  }
 `;
 
 export const Title = styled(H3)`

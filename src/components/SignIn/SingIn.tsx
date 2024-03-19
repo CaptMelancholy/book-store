@@ -2,7 +2,7 @@ import * as C from '../../styles/components';
 import * as S from './styles';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate, generatePath } from 'react-router-dom';
+import { useNavigate, generatePath, Link } from 'react-router-dom';
 import { AppDispatch } from '../../store';
 import { fetchSignIn, fetchUserMe } from '../../store/thunks/user/user.thunk';
 import DefaultRoutes from '../../utils/Routes/Routes';
@@ -28,7 +28,7 @@ export default function SingIn() {
       password: data.password,
     };
     try {
-      dispatch(fetchSignIn({ auth : payload }));
+      dispatch(fetchSignIn({ auth: payload }));
       dispatch(fetchUserMe());
       dispatch(setAuth(true));
       navigate(generatePath(DefaultRoutes.default));
@@ -58,19 +58,29 @@ export default function SingIn() {
       <S.InputFields>
         <C.Label>
           Email
-          <C.Input type="email" placeholder="Your email" {...register('email', registerOptions.email)} />
+          <C.Input
+            type="email"
+            placeholder="Your email"
+            {...register('email', registerOptions.email)}
+          />
           {errors?.email && (
             <S.ErrorInfo>{errors.email.message as string}</S.ErrorInfo>
           )}
         </C.Label>
         <C.Label>
           Password
-          <C.Input type="password" placeholder="Your password" {...register('password', registerOptions.password)} />
+          <C.Input
+            type="password"
+            placeholder="Your password"
+            {...register('password', registerOptions.password)}
+          />
           {errors?.password && (
             <S.ErrorInfo>{errors.password.message as string}</S.ErrorInfo>
           )}
         </C.Label>
-        <C.LinkHints>Forgot password?</C.LinkHints>
+        <C.LinkHints>
+          <Link to={generatePath(DefaultRoutes.reset)}>Forgot password?</Link>
+        </C.LinkHints>
       </S.InputFields>
       <C.Button type="submit">SIGN IN</C.Button>
     </S.Form>

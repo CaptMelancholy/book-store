@@ -8,9 +8,10 @@ const DefaultRoutes = {
   favorite: '/fav',
   book: '/book/:isbn13',
   search: '/results/:search/:page?',
-  account: '/account/:uid',
+  account: '/account',
   activation: '/activate/:uid/:token',
   reset: '/reset-password',
+  new_password: '/password/reset/confirm/:uid/:token',
 };
 
 export default DefaultRoutes;

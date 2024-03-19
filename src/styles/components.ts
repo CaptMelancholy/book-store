@@ -1,23 +1,31 @@
 import { Pagination } from '@mui/material';
 import styled from 'styled-components';
+import device from './breakpoints';
 
 export const H1 = styled.h1`
   font-family: var(--primary-family);
   color: ${({ theme }) => theme.colors.primary};
   font-size: 56px;
   font-weight: bold;
+  @media ${device.phone} {
+    font-size: 32px;
+  }
 `;
 
 export const H2 = styled.h2`
   font-family: var(--primary-family);
   color: ${({ theme }) => theme.colors.primary};
   font-size: 40px;
+  @media ${device.phone} {
+    font-size: 28px;
+  }
 `;
 
 export const H3 = styled.h3`
   font-family: var(--primary-family);
   color: ${({ theme }) => theme.colors.primary};
   font-size: 24px;
+
 `;
 
 export const SUBLINE = styled.p`
@@ -132,6 +140,10 @@ export const Label = styled.label`
   font-family: var(--secondary-family);
   font-weight: bold;
   margin-bottom: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 export const LinkHints = styled.p`
@@ -147,6 +159,9 @@ export const PaginationConatiner = styled.div`
   flex-direction: row;
   justify-content: center;
   margin-bottom: 72px;
+  @media ${device.phone} {
+    margin-bottom: 56px;
+  }
 `;
 
 export const StyledPagination = styled(Pagination)`

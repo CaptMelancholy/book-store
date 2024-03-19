@@ -21,7 +21,6 @@ import RegSuccessPage from './pages/RegSuccessPage';
 import ActivationPage from './pages/ActivationPage';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import AccountPage from './pages/AccountPage';
-import NewPassword from './components/Password/NewPassword/NewPassword';
 import NewPasswordPage from './pages/NewPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 

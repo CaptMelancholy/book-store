@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BODY1, BODY2, Label } from '../../../styles/components';
+import { BODY1, Label } from '../../../styles/components';
 
 export const Form = styled.form`
   display: flex;

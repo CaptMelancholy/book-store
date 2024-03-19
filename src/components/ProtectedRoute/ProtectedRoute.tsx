@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { authStatusSelector } from '../../store/slices/user/user.selectors';
 import { Navigate, generatePath } from 'react-router-dom';

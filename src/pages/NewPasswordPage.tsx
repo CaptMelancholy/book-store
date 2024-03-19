@@ -1,4 +1,3 @@
-import React from 'react';
 import NewPassword from '../components/Password/NewPassword/NewPassword';
 import BodyTemplate from '../components/BodyTemplate/BodyTemplate';
 

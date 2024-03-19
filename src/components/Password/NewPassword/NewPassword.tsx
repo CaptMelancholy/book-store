@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { Link, generatePath, useNavigate } from 'react-router-dom';
-import { AppDispatch } from '../../../store';
+import { generatePath, useNavigate } from 'react-router-dom';
 import API from '../../../api';
 import EAPIs from '../../../api/api-client';
 import * as S from './styles';

@@ -14,14 +14,15 @@ export default function Book({ book }: IProps) {
       <S.BookImageContainer>
         <S.BookImage src={book.image} />
       </S.BookImageContainer>
-      <Link to={generatePath(DefaultRoutes.book, { isbn13: book.isbn13 })}>
-        <S.Title>{book.title}</S.Title>
-      </Link>
-
-      <S.Author>{book.subtitle}</S.Author>
-      <S.InfoContainer>
-        <C.SUBLINE>{book.price}</C.SUBLINE>
-      </S.InfoContainer>
+      <S.BookInfoContainer>
+        <Link to={generatePath(DefaultRoutes.book, { isbn13: book.isbn13 })}>
+          <S.Title>{book.title}</S.Title>
+        </Link>
+        <S.Author>{book.subtitle}</S.Author>
+        <S.InfoContainer>
+          <C.SUBLINE>{book.price}</C.SUBLINE>
+        </S.InfoContainer>
+      </S.BookInfoContainer>
     </S.Wrapper>
   );
 }

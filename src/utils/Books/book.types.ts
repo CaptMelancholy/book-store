@@ -1,9 +1,21 @@
+export const VAT : number = 0.2;
 export interface IBook {
   title: string;
   subtitle: string;
   isbn13: string;
   price: string;
   image: string;
+}
+
+export interface ICartBook {
+  book: IBook;
+  amount: number;
+}
+
+export interface ISearchBook {
+  total: string;
+  page: string;
+  books: Array<IBook>;
 }
 
 export interface IDetailedBook {

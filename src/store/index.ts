@@ -8,11 +8,13 @@ import {
 import { useDispatch } from 'react-redux';
 import { listenerMiddleware } from './middleware';
 import booksReducer from './slices/books/books.slice';
+import userReducer from './slices/user/user.slice';
 
 import ESliceNames from './store.types';
 
 const rootReducer = combineReducers({
   [ESliceNames.BOOKS_SLICE_NAME]: booksReducer,
+  [ESliceNames.USER_SLICE_NAME]: userReducer,
 });
 
 const setupStore = () => configureStore({

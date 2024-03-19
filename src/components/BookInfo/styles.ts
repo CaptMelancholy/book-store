@@ -17,7 +17,30 @@ export const InfoSection = styled.div`
 export const ImageContainer = styled.div`
   position: relative;
   width: 544px;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: ${({ theme }) => {
+    function randomIntFromInterval(min: number, max: number) {
+      // min and max included
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    const color = randomIntFromInterval(1, 4);
+    switch (color) {
+      case 1: {
+        return theme.colors.blue;
+      }
+      case 2: {
+        return theme.colors.red;
+      }
+      case 3: {
+        return theme.colors.orange;
+      }
+      case 4: {
+        return theme.colors.purple;
+      }
+      default: {
+        return theme.colors.blue;
+      }
+    }
+  }};
   padding: 122px;
 `;
 
@@ -31,6 +54,9 @@ export const ImageButton = styled(IconButtonWithBg)`
   position: absolute;
   top: 0px;
   right: 0px;
+  &.active{
+    color: ${({ theme }) => theme.colors.red};
+  }
 `;
 
 export const InfoContainer = styled.div`

@@ -8,8 +8,38 @@ export const Wrapper = styled.div`
 
 export const BookImageContainer = styled.div`
   padding: 0 60px;
-  background-color: ${({ theme }) => theme.colors.blue};
+  background-color: ${({ theme }) => {
+    function randomIntFromInterval(min: number, max: number) {
+      // min and max included
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    const color = randomIntFromInterval(1, 4);
+    switch (color) {
+      case 1: {
+        return theme.colors.blue;
+      }
+      case 2: {
+        return theme.colors.red;
+      }
+      case 3: {
+        return theme.colors.orange;
+      }
+      case 4: {
+        return theme.colors.purple;
+      }
+      default: {
+        return theme.colors.blue;
+      }
+    }
+  }};
   object-fit: fill;
+`;
+
+export const BookInfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 `;
 
 export const BookImage = styled.img`
@@ -27,7 +57,7 @@ export const Title = styled(H3)`
   margin-bottom: 8px;
   width: 100%;
   word-break: break-all;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   &:hover {
     text-decoration: underline;
   }

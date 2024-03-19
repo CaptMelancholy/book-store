@@ -32,12 +32,19 @@ export default createGlobalStyle`
         min-height: 100vh;
     }
 
+    #root {
+        min-height:100%;
+    }
+
     body {
         margin: 0;
+        height:100%;
     }
 
     a {
         text-decoration: none;
+        color: inherit;
+        cursor: pointer;
     }
 
     li {

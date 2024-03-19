@@ -1,22 +1,35 @@
 import { FaX } from 'react-icons/fa6';
+import { useDispatch } from 'react-redux';
 import * as C from '../../styles/components';
 import * as S from './styles';
 
-export default function CartElement() {
+import { ICartBook } from '../../utils/Books/book.types';
+import { AppDispatch } from '../../store';
+import { popFromCart } from '../../store/slices/books/books.slice';
+
+interface IProps {
+  book: ICartBook;
+}
+
+export default function CartElement({ book }: IProps) {
+  const dispatch = useDispatch<AppDispatch>();
+  const handleDeleteFromCart = () => {
+    dispatch(popFromCart(book.book.isbn13));
+  };
   return (
     <S.Wrapper>
       <S.ImageInfoContainer>
         <S.ImageContainer>
-          <S.Image src="https://itbook.store/img/books/9781098104030.png" />
+          <S.Image src={book.book.image} />
         </S.ImageContainer>
         <S.InfoContainer>
-          <S.Title>HELLO WORLD</S.Title>
-          <S.Author>HELLO WORLD</S.Author>
+          <S.Title>{book.book.title}</S.Title>
+          <S.Author>{book.book.subtitle}</S.Author>
         </S.InfoContainer>
       </S.ImageInfoContainer>
       <S.DataContainer>
-        <S.Price>$31.2</S.Price>
-        <C.IconButton>
+        <S.Price>{book.book.price}</S.Price>
+        <C.IconButton onClick={handleDeleteFromCart}>
           <FaX />
         </C.IconButton>
       </S.DataContainer>

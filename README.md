@@ -12,4 +12,5 @@ Book Store is my front-end learning project.
 * Redux Thunks
 * React-Router-Dom
 * React-Icons
-* Material Tailwind
+* Material UI
+* React Hook Form

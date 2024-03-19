@@ -1,3 +1,4 @@
+import { Pagination } from '@mui/material';
 import styled from 'styled-components';
 
 export const H1 = styled.h1`
@@ -137,4 +138,31 @@ export const LinkHints = styled.p`
   font-size: 14px;
   font-family: var(--secondary-family);
   color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const PaginationConatiner = styled.div`
+  padding-top: 48px;
+  border-top: 1px solid ${({ theme }) => theme.colors.background_gray};
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 72px;
+`;
+
+export const StyledPagination = styled(Pagination)`
+  & > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+  }
+  & > ul > li > a {
+    font-size: 16px;
+    font-family: var(--primary-family) !important;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+  & > ul > li > .Mui-selected {
+    color: ${({ theme }) => theme.colors.primary};
+    background-color: transparent;
+  }
 `;

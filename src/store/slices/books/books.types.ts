@@ -1,9 +1,9 @@
-import { IBook, IDetailedBook } from '../../../utils/Books/book.types';
+import { IBook, ICartBook, IDetailedBook } from '../../../utils/Books/book.types';
 
 export interface IStorageBooks {
   newReleases: Array<IBook>;
   detailedBook: IDetailedBook | null;
-  cart: Array<IBook>;
+  cart: Array<ICartBook>;
   favoriteBooks: Array<IBook>;
 }
 

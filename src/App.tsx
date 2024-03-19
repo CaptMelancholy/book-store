@@ -13,7 +13,12 @@ import SignInPage from './pages/SignInPage';
 import CartPage from './pages/CartPage';
 import BookPage from './pages/BookPage';
 import { AppDispatch } from './store';
-import { fetchNewReleases } from './store/thunks/books/fetchNewReleases';
+import { fetchNewReleases } from './store/thunks/books/books.thunk';
+import FavoritePage from './pages/FavoritePage';
+import SearchPage from './pages/SearchPage';
+import RegToActivatePage from './pages/RegToActivatePage';
+import RegSuccessPage from './pages/RegSuccessPage';
+import ActivationPage from './pages/ActivationPage';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -36,6 +41,11 @@ function App() {
             <Route path={DefaultRoutes.home} element={<MainPage />} />
             <Route path={DefaultRoutes.book} element={<BookPage />} />
             <Route path={DefaultRoutes.cart} element={<CartPage />} />
+            <Route path={DefaultRoutes.favorite} element={<FavoritePage />} />
+            <Route path={DefaultRoutes.search} element={<SearchPage />} />
+            <Route path={DefaultRoutes.activation_request} element={<RegToActivatePage />} />
+            <Route path={DefaultRoutes.activation_comp} element={<RegSuccessPage />} />
+            <Route path={DefaultRoutes.activation} element={<ActivationPage />} />
             <Route
               path={DefaultRoutes.authorization}
               element={<SignInPage />}

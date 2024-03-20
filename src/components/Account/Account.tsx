@@ -3,6 +3,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import * as S from './styles';
 import * as C from '../../styles/components';
 import { userSelector } from '../../store/slices/user/user.selectors';
@@ -10,7 +11,6 @@ import { fetchUserMe } from '../../store/thunks/user/user.thunk';
 
 import { AppDispatch } from '../../store';
 import DefaultRoutes from '../../utils/Routes/Routes';
-import { useForm } from 'react-hook-form';
 import { IEmail, IPassword } from '../../utils/Payloads/payloads.types';
 import { updateEmail, updatePassword } from '../../api/api-client';
 
@@ -75,18 +75,18 @@ export default function Account() {
       validate: {
         email_to_change: (v: string) => {
           if (
-            watch('password') === '' &&
-            v.length > 0 &&
-            v !== userData?.email
+            watch('password') === ''
+            && v.length > 0
+            && v !== userData?.email
           ) {
             return 'You need to enter password';
           }
         },
         all_empty: () => {
           if (
-            watch('new_password') === '' &&
-            watch('email') === '' &&
-            watch('confirm_new_password') === ''
+            watch('new_password') === ''
+            && watch('email') === ''
+            && watch('confirm_new_password') === ''
           ) {
             return 'All fields are empty';
           }
@@ -114,9 +114,9 @@ export default function Account() {
         },
         all_empty: (v: string) => {
           if (
-            v === '' &&
-            watch('email').length === 0 &&
-            watch('confirm_new_password').length === 0
+            v === ''
+            && watch('email').length === 0
+            && watch('confirm_new_password').length === 0
           ) {
             return 'All fields are empty';
           }
@@ -146,9 +146,9 @@ export default function Account() {
         },
         all_empty: () => {
           if (
-            watch('new_password') === '' &&
-            watch('email') === '' &&
-            watch('confirm_new_password') === ''
+            watch('new_password') === ''
+            && watch('email') === ''
+            && watch('confirm_new_password') === ''
           ) {
             return 'All field are empty';
           }
@@ -218,7 +218,7 @@ export default function Account() {
                 placeholder="Confirm password"
                 {...register(
                   'confirm_new_password',
-                  registerOptions.confirm_new_password
+                  registerOptions.confirm_new_password,
                 )}
               />
               {errors?.confirm_new_password && (

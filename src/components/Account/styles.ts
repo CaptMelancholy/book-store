@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Input, Button, InverseButton, Label } from '../../styles/components';
+import {
+  Input, Button, InverseButton, Label,
+} from '../../styles/components';
 import device from '../../styles/breakpoints';
 
 export const FormWrapper = styled.form``;

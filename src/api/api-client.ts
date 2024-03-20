@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import axios from 'axios';
 import { ISearchBook, IDetailedBook } from '../utils/Books/book.types';
 import { IEmail, IPassword } from '../utils/Payloads/payloads.types';

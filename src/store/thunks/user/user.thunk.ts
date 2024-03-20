@@ -1,7 +1,7 @@
-import { IUserAuthorization } from './../../../utils/User/user.types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IUserRegistration } from '../../../utils/User/user.types';
 import axios from 'axios';
+import { IUserAuthorization, IUserRegistration } from '../../../utils/User/user.types';
+
 import EAPIs from '../../../api/api-client';
 import { setActivationEmail, setTokens, setUser } from '../../slices/user/user.slice';
 import API from '../../../api';
@@ -17,7 +17,7 @@ export const fetchSignUp = createAsyncThunk<void, { auth: IUserRegistration }>(
     } catch (e) {
       rejectWithValue(e);
     }
-  }
+  },
 );
 
 export const fetchSignIn = createAsyncThunk<void, { auth: IUserAuthorization }>(
@@ -31,17 +31,17 @@ export const fetchSignIn = createAsyncThunk<void, { auth: IUserAuthorization }>(
     } catch (e) {
       rejectWithValue(e);
     }
-  }
+  },
 );
 
-export const fetchUserMe = createAsyncThunk<void, void>('user/Me', 
-  async(_, {dispatch, rejectWithValue}) => {
+export const fetchUserMe = createAsyncThunk<void, void>(
+  'user/Me',
+  async (_, { dispatch, rejectWithValue }) => {
     try {
-      const response = await API.get(`${EAPIs.AUTH_API}/users/me`).then(({data}) => data);
+      const response = await API.get(`${EAPIs.AUTH_API}/users/me`).then(({ data }) => data);
       dispatch(setUser(response));
-      
     } catch (e) {
       rejectWithValue(e);
     }
-  }
-)
+  },
+);

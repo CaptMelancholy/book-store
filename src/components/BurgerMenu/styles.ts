@@ -11,6 +11,7 @@ export const MenuWrapper = styled.div`
   height: 56px;
   @media ${device.desktop} {
     display: flex;
+    justify-content: center;
   }
 `;
 
@@ -90,6 +91,15 @@ export const Menu = styled.div`
       text-align: center;
       height: 56px;
       justify-content: center;
+    }
+  }
+
+  @media ${device.phone} {
+    & > h2 {
+      position: absolute;
+      top: 31px;
+      left: 40px;
+      display: flex;
     }
   }
 `;

@@ -63,8 +63,12 @@ export default function BurgerMenu({ setShowScreenBlock }: IProps) {
         </S.MenuContainer>
       </S.MenuWrapper>
       <S.Menu className={!open ? 'hide' : ''}>
-        <C.H2>BOOKSTORE</C.H2>
-        <Link to={generatePath(DefaultRoutes.account)}>
+        <C.H2>
+          <Link to={generatePath(DefaultRoutes.default)} onClick={handleClick}>
+            BOOKSTORE
+          </Link>
+        </C.H2>
+        <Link to={generatePath(DefaultRoutes.account)} onClick={handleClick}>
           <FaRegUser />
         </Link>
         <S.MenuContent>
@@ -75,7 +79,10 @@ export default function BurgerMenu({ setShowScreenBlock }: IProps) {
                 <FaMagnifyingGlass />
               </S.IconButtonInInput>
             </S.SearchContainer>
-            <Link to={generatePath(DefaultRoutes.favorite)} onClick={handleClick}>
+            <Link
+              to={generatePath(DefaultRoutes.favorite)}
+              onClick={handleClick}
+            >
               <S.CustomLink>FAVORITES</S.CustomLink>
             </Link>
             <Link to={generatePath(DefaultRoutes.cart)} onClick={handleClick}>

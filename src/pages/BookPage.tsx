@@ -16,17 +16,19 @@ export default function BookPage() {
   const [curBook, setCurBook] = useState<IDetailedBook>();
   const [similarBooks, setSimilarBooks] = useState<Array<IBook>>([]);
   useEffect(() => {
+    const getSimilar = async () => {
+      const books = await axios
+        .get(`${EAPIs.BOOK_API}/search/similar/`)
+        .then(({ data }) => data.books);
+      setSimilarBooks(books);
+    };
     const getNewReleases = async () => {
       if (isbn13 !== undefined) {
         setCurBook(await fetchInfoBook(isbn13));
-        await axios
-          .get(`${EAPIs.BOOK_API}/search/${curBook?.title.substring(0, 4)}/`)
-          .then(({ data }) => {
-            setSimilarBooks(data.books.slice(0, 7));
-          });
       }
     };
     getNewReleases();
+    getSimilar();
   }, []);
   return (
     <BodyTemplate title={curBook?.title} backButton>

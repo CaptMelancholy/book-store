@@ -1,6 +1,7 @@
 import { FaX, FaPlus, FaMinus } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { generatePath, Link } from 'react-router-dom';
 import * as C from '../../styles/components';
 import * as S from './styles';
 
@@ -11,6 +12,7 @@ import {
   incInCart,
   popFromCart,
 } from '../../store/slices/books/books.slice';
+import DefaultRoutes from '../../utils/Routes/Routes';
 
 interface IProps {
   book: ICartBook;
@@ -38,14 +40,49 @@ export default function CartElement({ book }: IProps) {
   };
   return (
     <S.Wrapper>
-      <S.ImageInfoContainer>
-        <S.ImageContainer>
-          <S.Image src={book.book.image} />
-        </S.ImageContainer>
-        <S.InfoContainer>
-          <S.Title>{book.book.title}</S.Title>
-          <S.Author>{book.book.subtitle}</S.Author>
-          <S.CounterContainer>
+      <S.ImageContainer>
+        <S.ImageButton onClick={handleDeleteFromCart}>
+          <FaX />
+        </S.ImageButton>
+        <S.Image src={book.book.image} />
+      </S.ImageContainer>
+      <S.TransformContainer>
+        <S.ManipulatingContainer>
+          <S.InfoContainer>
+            <Link
+              to={generatePath(DefaultRoutes.book, {
+                isbn13: book.book.isbn13,
+              })}
+            >
+              <S.Title>{book.book.title}</S.Title>
+            </Link>
+            <S.Author>{book.book.subtitle}</S.Author>
+            <S.CounterContainerIndependent>
+              <S.CounterElement>
+                <C.IconButton
+                  type="button"
+                  onClick={() => handleCartChanging(IOps.dec)}
+                >
+                  <FaMinus />
+                </C.IconButton>
+              </S.CounterElement>
+              <S.CounterElement>{count}</S.CounterElement>
+              <S.CounterElement>
+                <C.IconButton onClick={() => handleCartChanging(IOps.inc)}>
+                  <FaPlus />
+                </C.IconButton>
+              </S.CounterElement>
+            </S.CounterContainerIndependent>
+          </S.InfoContainer>
+          <S.Price>{`$ ${Math.ceil(parseFloat(book.book.price.substring(1)) * book.amount * 100) / 100}`}</S.Price>
+          <S.DataContainer>
+            <C.IconButton onClick={handleDeleteFromCart}>
+              <FaX />
+            </C.IconButton>
+          </S.DataContainer>
+        </S.ManipulatingContainer>
+        <S.PriceCounterContainer>
+          <S.CounterContainerWithPrice>
             <S.CounterElement>
               <C.IconButton
                 type="button"
@@ -60,15 +97,10 @@ export default function CartElement({ book }: IProps) {
                 <FaPlus />
               </C.IconButton>
             </S.CounterElement>
-          </S.CounterContainer>
-        </S.InfoContainer>
-      </S.ImageInfoContainer>
-      <S.DataContainer>
-        <S.Price>{`$ ${Math.ceil(parseFloat(book.book.price.substring(1)) * book.amount * 100) / 100}`}</S.Price>
-        <C.IconButton onClick={handleDeleteFromCart}>
-          <FaX />
-        </C.IconButton>
-      </S.DataContainer>
+          </S.CounterContainerWithPrice>
+          <S.Price>{`$ ${Math.ceil(parseFloat(book.book.price.substring(1)) * book.amount * 100) / 100}`}</S.Price>
+        </S.PriceCounterContainer>
+      </S.TransformContainer>
     </S.Wrapper>
   );
 }

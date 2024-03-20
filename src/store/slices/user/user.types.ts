@@ -8,8 +8,8 @@ export interface IUserStorage {
 }
 
 export const storageUserDefaultState: IUserStorage = {
-    activation_email: '',
-    auth: false,
-    tokens: null,
-    user: null,
+  activation_email: '',
+  auth: false,
+  tokens: null,
+  user: null,
 };

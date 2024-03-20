@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BODY1 } from '../../../styles/components';
+import device from '../../../styles/breakpoints';
 
 export const ContentWrapperDefault = styled.div`
   padding: 54px 0;
@@ -7,6 +8,9 @@ export const ContentWrapperDefault = styled.div`
 
 export const ContentWrapperBold = styled(ContentWrapperDefault)`
   padding: 33px;
+  @media ${device.tablet} {
+    padding: 36px 0 0 0;
+  }
 `;
 
 export const ContentDefault = styled(BODY1)`

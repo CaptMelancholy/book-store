@@ -1,10 +1,11 @@
-import * as C from '../../styles/components';
-import * as S from './styles';
+/* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
 import { generatePath, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as C from '../../styles/components';
+import * as S from './styles';
 import DefaultRoutes from '../../utils/Routes/Routes';
 import { IUserRegistration } from '../../utils/User/user.types';
-import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
 import { fetchSignUp } from '../../store/thunks/user/user.thunk';
 
@@ -38,7 +39,6 @@ export default function SingUp() {
       console.error(e);
     }
   };
-  const handleError = (errors: Object) => console.log(errors);
 
   const registerOptions = {
     name: { required: 'Name is required' },
@@ -72,7 +72,7 @@ export default function SingUp() {
     },
   };
   return (
-    <S.Form onSubmit={handleSubmit(handleRegistration, handleError)}>
+    <S.Form onSubmit={handleSubmit(handleRegistration)}>
       <S.InputFields>
         <C.Label>
           Name

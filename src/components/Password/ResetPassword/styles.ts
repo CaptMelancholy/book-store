@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import { BODY1, Label } from '../../../styles/components';
+import device from '../../../styles/breakpoints';
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 0 20px;
+  @media ${device.tablet} {
+    padding: 0;
+  }
 `;
 
 export const InputFields = styled.div`
@@ -23,6 +27,10 @@ export const AuthorizationWrapper = styled.div`
   min-height: calc(100vh - 158px);
   justify-content: center;
   align-items: center;
+  @media ${device.tablet} {
+    min-height: 100%;
+    padding: 48px 0;
+  }
 `;
 
 export const AuthorizationContainer = styled.div`
@@ -30,6 +38,11 @@ export const AuthorizationContainer = styled.div`
   padding-bottom: 40px;
   border: 1px solid ${({ theme }) => theme.colors.background_gray};
   width: 544px;
+  @media ${device.tablet} {
+    width: 100%;
+    padding: 0;
+    border: 0;
+  }
 `;
 
 export const InfoBox = styled(BODY1)`

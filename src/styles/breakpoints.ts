@@ -5,9 +5,9 @@ interface ISize {
 }
 
 const size: ISize = {
-  desktop: '1024px',
-  tablet: '768px',
-  phone: '320px',
+  desktop: '1200px',
+  tablet: '780px',
+  phone: '480px',
 };
 
 const device = {

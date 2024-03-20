@@ -19,7 +19,7 @@ export default createGlobalStyle`
         display: block;
     }
     :root {
-        font-family: var(--second-family);
+        font-family: var(--primary-family);
         line-height: 1.5;
         font-weight: 400;
         font-synthesis: none;

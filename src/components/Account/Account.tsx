@@ -1,19 +1,19 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { generatePath, useNavigate } from 'react-router-dom';
 import * as S from './styles';
 import * as C from '../../styles/components';
-import { useSelector } from 'react-redux';
 import { userSelector } from '../../store/slices/user/user.selectors';
-import { useEffect } from 'react';
 import { fetchUserMe } from '../../store/thunks/user/user.thunk';
-import { useDispatch } from 'react-redux';
+
 import { AppDispatch } from '../../store';
-import { generatePath, useNavigate } from 'react-router-dom';
 import DefaultRoutes from '../../utils/Routes/Routes';
 
 export default function Account() {
   const userData = useSelector(userSelector);
   const dispatch = useDispatch<AppDispatch>();
   const navigation = useNavigate();
-  
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -23,7 +23,7 @@ export default function Account() {
       }
     };
     getUser();
-  }, []);
+  }, [dispatch, navigation]);
   return (
     <S.FormWrapper>
       <S.InfoContainer>

@@ -4,6 +4,8 @@ export const ButtonDefaultWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid ${({ theme }) => theme.colors.background_gray};
+  overflow-x: scroll;
+  overflow-y: hidden;
 `;
 
 export const ButtonBoldWrapper = styled.div`
@@ -21,6 +23,7 @@ export const ButtonDefault = styled.div`
   cursor: pointer;
   transition: .3s ease-in-out;
   position: relative;
+  
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }

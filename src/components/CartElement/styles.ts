@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BODY1, H3, SUBLINE } from '../../styles/components';
+import device from '../../styles/breakpoints';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -45,8 +46,27 @@ export const DataContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 120px;
+  @media ${device.desktop} {
+    gap: 105px;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: end;
+  }
 `;
 
 export const Price = styled(SUBLINE)`
   font-size: 40px;
+`;
+
+export const CounterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const CounterElement = styled.div`
+  font-family: var(--primary-family);
+  width: 56px;
+  text-align: center;
+  font-size: 24px;
 `;

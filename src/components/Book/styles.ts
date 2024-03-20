@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
 `;
 
 export const BookImageContainer = styled.div`
-  padding: 0 60px;
-  
+  display: flex;
+  justify-content: center;
   background-color: ${({ theme }) => {
     function randomIntFromInterval(min: number, max: number) {
       // min and max included
@@ -35,10 +35,6 @@ export const BookImageContainer = styled.div`
     }
   }};
   object-fit: fill;
-  @media ${device.phone} {
-    padding: 0;
-    width: 100%;
-  }
 `;
 
 export const BookInfoContainer = styled.div`
@@ -50,13 +46,15 @@ export const BookInfoContainer = styled.div`
 
 export const BookImage = styled.img`
   object-fit: cover;
-  padding: 40px;
-  
+  min-height: 264px;
+  min-width: 226px;
   @media ${device.tablet} {
-    padding: 30px;
+    min-height: 245px;
+    min-width: 210px;
   }
   @media ${device.phone} {
-    padding: 10px;
+    min-height: 203px;
+    min-width: 174px;
   }
 `;
 

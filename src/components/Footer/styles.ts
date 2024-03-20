@@ -18,6 +18,11 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   padding: 36px 0;
   border-top: 1px solid ${({ theme }) => theme.colors.secondary};
+  @media ${device.phone} {
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+  }
 `;
 
 export const Text = styled(BODY1)`

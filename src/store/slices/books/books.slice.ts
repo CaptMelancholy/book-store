@@ -15,17 +15,16 @@ const booksSlice = createSlice({
       ...state,
       detailedBook: action.payload,
     }),
-    incInCart: (state, action: { payload: string }) => ({
-      ...state,
-      cart: state.cart.map((element) => {
+    incInCart: (state, action: { payload: string }) => {
+      state.cart = state.cart.map((element) => {
         const { book } = element;
         if (book.isbn13 === action.payload) {
           element.amount += 1;
           return element;
         }
         return element;
-      }),
-    }),
+      });
+    },
     decInCart: (state, action: { payload: string }) => {
       const cartElement = state.cart.find(
         ({ book }) => book.isbn13 === action.payload,

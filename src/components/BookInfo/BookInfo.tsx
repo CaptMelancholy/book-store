@@ -104,10 +104,10 @@ export default function BookInfo({ book }: IProps) {
               <S.Image src={book?.image} />
             </S.ImageContainer>
             <S.InfoContainer>
-              <S.Line>
+              <S.LineData>
                 <C.H2>{book?.price}</C.H2>
                 <StarRating rates={book.rating} />
-              </S.Line>
+              </S.LineData>
               <S.Line>
                 <C.BODY2>Authors</C.BODY2>
                 <C.BODY1>{book.authors}</C.BODY1>

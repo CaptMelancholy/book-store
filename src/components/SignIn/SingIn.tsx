@@ -1,10 +1,11 @@
-import * as C from '../../styles/components';
-import * as S from './styles';
+/* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate, generatePath, Link } from 'react-router-dom';
+import * as S from './styles';
+import * as C from '../../styles/components';
 import { AppDispatch } from '../../store';
-import { fetchSignIn, fetchUserMe } from '../../store/thunks/user/user.thunk';
+import { fetchSignIn } from '../../store/thunks/user/user.thunk';
 import DefaultRoutes from '../../utils/Routes/Routes';
 import { IUserAuthorization } from '../../utils/User/user.types';
 import { setAuth } from '../../store/slices/user/user.slice';
@@ -29,7 +30,6 @@ export default function SingIn() {
     };
     try {
       dispatch(fetchSignIn({ auth: payload }));
-      dispatch(fetchUserMe());
       dispatch(setAuth(true));
       navigate(generatePath(DefaultRoutes.default));
     } catch (e) {

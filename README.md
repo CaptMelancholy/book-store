@@ -4,6 +4,7 @@ Book Store is my front-end learning project.
 
 ## Technologies
 
+* Axios
 * TypeScript
 * ReactTS
 * Vite.js
@@ -14,3 +15,4 @@ Book Store is my front-end learning project.
 * React-Icons
 * Material UI
 * React Hook Form
+* React Slick

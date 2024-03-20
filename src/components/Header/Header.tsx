@@ -10,8 +10,13 @@ import { useRef } from 'react';
 import * as C from '../../styles/components';
 import * as S from './styles';
 import DefaultRoutes from '../../utils/Routes/Routes';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
-export default function Header() {
+interface IProps {
+  setShowScreenBlock: (data: boolean) => void;
+}
+
+export default function Header({ setShowScreenBlock }: IProps) {
   const inputSearchRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const handleSearch = () => {
@@ -46,11 +51,12 @@ export default function Header() {
               <FaBagShopping />
             </Link>
           </S.HeaderMenuLink>
-          <S.HeaderMenuLink>
+          <S.HeaderMenuLinkAccount>
             <Link to={generatePath(DefaultRoutes.account)}>
               <FaRegUser />
             </Link>
-          </S.HeaderMenuLink>
+          </S.HeaderMenuLinkAccount>
+          <BurgerMenu setShowScreenBlock={setShowScreenBlock} />
         </S.HeaderMenu>
       </S.HeaderContainer>
     </S.Header>

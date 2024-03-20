@@ -1,7 +1,9 @@
-import * as S from './styles';
-import * as C from '../../../styles/components';
+/* eslint-disable consistent-return */
+/* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
 import { generatePath, useNavigate, useParams } from 'react-router-dom';
+import * as S from './styles';
+import * as C from '../../../styles/components';
 import API from '../../../api';
 import EAPIs from '../../../api/api-client';
 import DefaultRoutes from '../../../utils/Routes/Routes';
@@ -24,8 +26,8 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const handleReset = (data: IUserInput) => {
     const payload = {
-      uid: uid,
-      token: token,
+      uid,
+      token,
       new_password: data.password,
     };
     try {
@@ -83,7 +85,7 @@ export default function ResetPassword() {
                 placeholder="Confirm your password"
                 {...register(
                   'confirm_password',
-                  registerOptions.confirm_password
+                  registerOptions.confirm_password,
                 )}
               />
               {errors?.confirm_password && (

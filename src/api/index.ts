@@ -9,41 +9,37 @@ const API = axios.create({
 
 API.interceptors.request.use(
   async (config) => {
-    const tokens = store.getState().user.tokens;
+    const { tokens } = store.getState().user;
     if (tokens) {
       const { access } = tokens;
       config.headers.Authorization = `Bearer ${access}`;
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 API.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    return new Promise(async (resolve) => {
-      const originalRequest = error.config;
-      const tokens = store.getState().user.tokens;
-      if (tokens) {
-        const { refresh } = tokens;
+  (response) => response,
+  (error) => new Promise((resolve) => {
+    const originalRequest = error.config;
+    const { tokens } = store.getState().user;
+    if (tokens) {
+      const { refresh } = tokens;
 
-        if (error.response && error.response.status === 401) {
-          originalRequest._retry = true;
-          const access = await axios
-            .post(`${EAPIs}/jwt/refresh`, refresh)
-            .then(({ data }) => data.access);
-          store.dispatch(setTokens({ refresh, access }));
-          axios(originalRequest);
-          resolve(access);
-        } else {
-          store.dispatch(setAuth(false));
-        }
+      if (error.response && error.response.status === 401) {
+        originalRequest._retry = true;
+        const access = axios
+          .post(`${EAPIs}/jwt/refresh`, refresh)
+          .then(({ data }) => data.access);
+        store.dispatch(setTokens({ refresh, access }));
+        axios(originalRequest);
+        resolve(access);
+      } else {
+        store.dispatch(setAuth(false));
       }
-    });
-  }
+    }
+  }),
 );
 
 export default API;

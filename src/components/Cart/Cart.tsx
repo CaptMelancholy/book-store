@@ -21,7 +21,7 @@ export default function Cart() {
     );
     setPrice(value);
     setVat(Math.ceil(value * VAT * 100) / 100);
-    setSum(price + vat);
+    setSum(Math.ceil((price + vat) * 100) / 100);
   };
   useEffect(() => {
     calcParameters();

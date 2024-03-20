@@ -16,6 +16,17 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
+  @media ${device.desktop} {
+    justify-content: space-between;
+    &:has(h2) {
+      padding: 22px 0;
+    }
+  }
+  @media ${device.tablet} {
+    &:has(h2) {
+      z-index: 3;
+    }
+  }
 `;
 
 export const HeaderMenu = styled.div`
@@ -26,6 +37,28 @@ export const HeaderMenu = styled.div`
 
 export const HeaderMenuLink = styled.div`
   width: 56px;
+  & > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media ${device.desktop} {
+    display: none;
+  }
+`;
+export const HeaderMenuLinkAccount = styled.div`
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -34,6 +67,9 @@ export const SearchContainer = styled.div`
   padding: 24px 0;
   margin-left: 150px;
   margin-right: 120px;
+  @media ${device.desktop} {
+    display: none;
+  }
 `;
 
 export const SearchInput = styled(Input)`
@@ -46,5 +82,4 @@ export const IconButtonInInput = styled(IconButton)`
   right: 0;
   height: 100%;
   cursor: pointer;
-
 `;

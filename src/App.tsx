@@ -63,11 +63,11 @@ function App() {
             />
             <Route
               path={DefaultRoutes.account}
-              element={
+              element={(
                 <ProtectedRoute>
                   <AccountPage />
                 </ProtectedRoute>
-              }
+              )}
             />
             <Route
               path={DefaultRoutes.authorization}

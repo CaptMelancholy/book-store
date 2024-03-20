@@ -1,5 +1,5 @@
-import { ITokens, IUser } from './../../../utils/User/user.types';
 import { createSlice } from '@reduxjs/toolkit';
+import { ITokens, IUser } from '../../../utils/User/user.types';
 import ESliceNames from '../../store.types';
 import { storageUserDefaultState } from './user.types';
 
@@ -23,9 +23,15 @@ const userSlice = createSlice({
       ...state,
       auth: action.payload,
     }),
+    setLogOut: (state) => ({
+      ...state,
+      storageUserDefaultState,
+    }),
   },
 });
 
-export const { setActivationEmail, setTokens, setUser, setAuth } = userSlice.actions;
+export const {
+  setActivationEmail, setTokens, setUser, setAuth, setLogOut,
+} = userSlice.actions;
 
 export default userSlice.reducer;

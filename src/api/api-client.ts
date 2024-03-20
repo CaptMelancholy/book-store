@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { ISearchBook, IDetailedBook } from '../utils/Books/book.types';
+import { IEmail, IPassword } from '../utils/Payloads/payloads.types';
+import API from '.';
 
 enum EAPIs {
   BOOK_API = 'https://api.itbook.store/1.0',
@@ -18,6 +20,14 @@ export const searchBooks = async (keyword: string, page: string) => {
     .get(`${EAPIs.BOOK_API}/search/${keyword}/${page}`)
     .then(({ data }) => data);
   return response as ISearchBook;
+};
+
+export const updatePassword = async (payload: IPassword) => {
+  await API.post(`${EAPIs.AUTH_API}/users/set_password/`, payload);
+};
+
+export const updateEmail = async (payload: IEmail) => {
+  await API.post(`${EAPIs.AUTH_API}/users/set_email/`, payload);
 };
 
 export default EAPIs;

@@ -14,6 +14,7 @@ const userSlice = createSlice({
     setTokens: (state, action: { payload: ITokens }) => ({
       ...state,
       tokens: action.payload,
+      auth: true,
     }),
     setUser: (state, action: { payload: IUser }) => ({
       ...state,
@@ -25,7 +26,8 @@ const userSlice = createSlice({
     }),
     setLogOut: (state) => ({
       ...state,
-      storageUserDefaultState,
+      auth: false,
+      tokens: null,
     }),
   },
 });

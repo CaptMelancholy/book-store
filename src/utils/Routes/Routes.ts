@@ -1,7 +1,5 @@
-const GH_PAGES_URL = 'book-store';
-
 const DefaultRoutes = {
-  default: `/${GH_PAGES_URL}/`,
+  default: '/',
   home: 'home',
   cart: '/cart',
   authorization: '/auth',

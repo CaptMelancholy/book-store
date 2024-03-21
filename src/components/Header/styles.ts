@@ -37,6 +37,13 @@ export const HeaderMenu = styled.div`
 
 export const HeaderMenuLink = styled.div`
   width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &.active {
+    display: none;
+  }
   & > a {
     display: flex;
     align-items: center;
@@ -51,13 +58,16 @@ export const HeaderMenuLinkAccount = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  &.active {
+    display: none;
+  }
   & > a {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   @media ${device.tablet} {
-    display: none;
+    display: none !important;
   }
 `;
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-async-promise-executor */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
@@ -23,7 +24,7 @@ API.interceptors.request.use(
 
 API.interceptors.response.use(
   (response) => response,
-  (error) => new Promise((resolve) => {
+  (error) => new Promise(async (resolve) => {
     const originalRequest = error.config;
     const { tokens } = store.getState().user;
     if (tokens) {
@@ -31,9 +32,9 @@ API.interceptors.response.use(
       store.dispatch(setAuth(false));
       if (error.response && error.response.status === 401) {
         originalRequest._retry = true;
-        const access = axios
+        const access = await axios
           .post(`${EAPIs}/jwt/refresh`, refresh)
-          .then(({ data }) => data.access);
+          .then(({ data }) => data.access.toString());
         store.dispatch(setTokens({ refresh, access }));
         axios(originalRequest);
         resolve(access);
